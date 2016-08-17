@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script>
+			var regex = /^[a-zA-Z0-9]+$/;
+			//array of words
+			//get a random word from an array
+			var teams = ["San Antonio Spurs","Golden State Warriors","Chicago Bulls","Los Angeles Lakers","Detroit Pistons"];
+			var selectedTeam = teams[Math.floor(Math.random()*teams.length)];
+			//display the selected team
+			var guess = "";
+			for (var i=0; i < selectedTeam.length; i++)
+			{
+				if( !regex.test(selectedTeam[i]) )
+					guess=guess+selectedTeam[i];
+				else
+					guess=guess+"_ ";
+			}
+			console.log(guess);
+			var lettersGuessed = [];
+			document.onkeyup = function(event) {
+				if( lettersGuessed.indexOf( event.key) < 0 )
+				{
+					if( regex.test(event.key) )
+						lettersGuessed.push(event.key);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
